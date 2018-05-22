@@ -14,6 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     
     @IBAction func getTempButtonTapped(_ sender: AnyObject) {
+        
+        if let city = cityNameTextField.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) {
+            if let encodedString = city.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                getWeatherData(urlString: "http://api.openweathermap.org/data/2.5/weather?q=\(encodedString)&appid=6c20f50475503fab68506043e715a59e")
+            }
+        }
+        
     }
     
     override func viewDidLoad() {
