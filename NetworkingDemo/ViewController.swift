@@ -66,8 +66,13 @@ class ViewController: UIViewController {
 
     }
 
-    func setLabel(weatherData: Data) {
+    func setLabel() {
 
+        if let temp = self.weather?.temperature {
+            if let desc = self.weather?.weatherDescription {
+                temperatureLabel.text = "Temp: \(String(format: "%.1f", temp)) Desc: \(desc)"
+            }
+        }
         
     }
     
