@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
+import SwiftyJSON
 
 class ViewController: UIViewController {
+    
+    // MARK: Variables
+    var weather: Weather?
 
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -37,30 +43,32 @@ class ViewController: UIViewController {
     }
 
     func getWeatherData(urlString: String) {
-        let url = URL(string: urlString)
-        
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            DispatchQueue.main.async(execute: {
-                self.setLabel(weatherData: data!)
-            })
-        }
-        
-        task.resume()
-        
-    }
-    
-    func setLabel(weatherData: Data) {
-        do {
-            let json = try JSONSerialization.jsonObject(with: weatherData, options: []) as! Dictionary<String, AnyObject>
-            
-            if let main = json["main"] as? Dictionary<String, AnyObject> {
-                if let temp = main["temp"] as? Double {
-                    temperatureLabel.text = String(format: "%.1f", temp)
+
+        Alamofire.request(urlString)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    if let weatherJSON = response.result.value {
+                        let parsedData = JSON(weatherJSON)
+
+                        let id = parsedData["id"].int
+                        let cityName = parsedData["name"].string
+                        let temperature = parsedData["main", "temp"].double
+                        let description = parsedData["weather", 0, "description"].string
+
+                        self.weather = Weather(id: id!, cityName: cityName!, temperature: temperature!, weatherDescription: description!)
+                        self.setLabel()
+                    }
+                } else {
+                    print(response.result.error.debugDescription)
                 }
-            }
-        } catch {
-            print("Error fetching data")
         }
+
+    }
+
+    func setLabel(weatherData: Data) {
+
+        
     }
     
 

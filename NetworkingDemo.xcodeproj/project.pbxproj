@@ -14,6 +14,7 @@
 		D414C20220B3327500D5BF78 /* NetworkingDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D414C20020B3327500D5BF78 /* NetworkingDemo.xcdatamodeld */; };
 		D414C20420B3327800D5BF78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D414C20320B3327800D5BF78 /* Assets.xcassets */; };
 		D414C20720B3327800D5BF78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D414C20520B3327800D5BF78 /* LaunchScreen.storyboard */; };
+		D4AA1D6D20B71F7C0036DA96 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AA1D6C20B71F7C0036DA96 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D414C20320B3327800D5BF78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D414C20620B3327800D5BF78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D414C20820B3327800D5BF78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4AA1D6C20B71F7C0036DA96 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		F3FA83B380DB587164D5CDB3 /* Pods-NetworkingDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkingDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkingDemo/Pods-NetworkingDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 			children = (
 				D414C1F920B3327400D5BF78 /* AppDelegate.swift */,
 				D414C1FB20B3327500D5BF78 /* ViewController.swift */,
+				D4AA1D6C20B71F7C0036DA96 /* Weather.swift */,
 				D414C1FD20B3327500D5BF78 /* Main.storyboard */,
 				D414C20320B3327800D5BF78 /* Assets.xcassets */,
 				D414C20520B3327800D5BF78 /* LaunchScreen.storyboard */,
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4AA1D6D20B71F7C0036DA96 /* Weather.swift in Sources */,
 				D414C1FC20B3327500D5BF78 /* ViewController.swift in Sources */,
 				D414C1FA20B3327400D5BF78 /* AppDelegate.swift in Sources */,
 				D414C20220B3327500D5BF78 /* NetworkingDemo.xcdatamodeld in Sources */,
