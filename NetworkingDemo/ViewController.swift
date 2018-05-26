@@ -44,9 +44,19 @@ class ViewController: UIViewController {
 
     func getWeatherData(urlString: String) {
 
+        // MARK: - Progress HUD
+        
+        let hud = MBProgressHUD()
+        hud.label.text = "Loading"
+        view.addSubview(hud)
+        hud.show(animated: true)
+        
+        // MARK: - Alamofire Request
+        
         Alamofire.request(urlString)
             .validate()
             .responseJSON { response in
+                hud.hide(animated: true)
                 if response.result.isSuccess {
                     if let weatherJSON = response.result.value {
                         let parsedData = JSON(weatherJSON)
